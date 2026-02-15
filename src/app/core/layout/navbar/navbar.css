@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+.menu {
+  display: flex;
+  gap: 15px;
+}
+.active {
+  font-weight: bold;
+  color: blue;
+}
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: red;
+}
