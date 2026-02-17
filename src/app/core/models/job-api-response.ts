@@ -1,7 +1,7 @@
-import {JobOffer} from './job-offer';
+import {JobOfferModel} from './job-offer-model';
 
 export interface JobApiResponse {
-  data: JobOffer[];
+  data: JobOfferModel[];
   links: {
     first: string | null;
     last: string | null;
@@ -11,9 +11,12 @@ export interface JobApiResponse {
   meta: {
     current_page: number;
     from: number;
+    last_page: number;
     path: string;
     per_page: number;
     to: number;
     total: number;
+    terms: string;
+    info: string;
   };
 }
