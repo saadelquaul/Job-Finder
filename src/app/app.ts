@@ -10,5 +10,5 @@ import {Footer} from './core/layout/footer/footer';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('Job-Finder');
+  protected readonly title = signal('JobService-Finder');
 }
