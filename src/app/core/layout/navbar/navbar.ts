@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import {RouterLink, RouterLinkActive} from '@angular/router';
-import { AuthService } from '../../services/authService';
+import {Router, RouterLink, RouterLinkActive} from '@angular/router';
+import { AuthService } from '../../services/auth-service';
 @Component({
   selector: 'app-navbar',
   imports: [
@@ -11,13 +11,15 @@ import { AuthService } from '../../services/authService';
   styleUrl: './navbar.css',
 })
 export class Navbar {
-  private authService = inject(AuthService);
+  mobileMenuOpen = false;
 
-  logout() {
+  constructor(
+    public authService: AuthService,
+    private router: Router
+  ) { }
+
+  logout(): void {
     this.authService.logout();
-  }
-
-  currentUser() {
-    return this.authService.currentUser;
+    this.router.navigate(['/']);
   }
 }
