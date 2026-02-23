@@ -1,59 +1,122 @@
-# JobFinder
+# JobFinder 🔍
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.5.
+Application Angular de recherche d'emplois utilisant des APIs publiques internationales.
 
-## Development server
+## 📸 Screenshots
 
-To start a local development server, run:
+### 🔎 Search Page
+Search for jobs by keywords and location with paginated results.
 
-```bash
-ng serve
+![Search Page](src/app/static/images/searchPage.png)
+
+### ⭐ Favorites Page
+Save and manage your favorite job offers.
+
+![Favorites Page](src/app/static/images/favoritePage.png)
+
+### 📝 Applications Page
+Track your job applications with status management and notes.
+
+![Applications Page](src/app/static/images/applicationsPage.png)
+
+---
+## Fonctionnalités
+
+- **Recherche d'emplois** — Recherchez des offres via l'API Arbeitnow avec filtres par mots-clés et localisation
+- **Gestion des favoris** — Sauvegardez vos offres préférées (gérée avec NgRx)
+- **Suivi des candidatures** — Suivez l'état de vos candidatures (En attente / Accepté / Refusé)
+- **Authentification** — Inscription, connexion, gestion du profil avec stockage localStorage
+- **Design responsive** — Interface adaptative avec Tailwind CSS
+
+## Technologies
+
+| Technologie | Utilisation |
+|---|---|
+| Angular 21 | Framework frontend (standalone components) |
+| NgRx | State management (favoris) |
+| RxJS | Programmation réactive |
+| Tailwind CSS | Styling & responsive design |
+| JSON Server | API REST simulée (persistance des données) |
+| Reactive Forms | Formulaires avec validation |
+| Arbeitnow API | API publique de recherche d'emplois |
+
+## Concepts Angular utilisés
+
+- ✅ Standalone components
+- ✅ Lazy Loading (routes feature modules)
+- ✅ Guards (AuthGuard pour routes protégées)
+- ✅ Intercepteurs HTTP (gestion centralisée des erreurs)
+- ✅ Services & Injection de dépendances
+- ✅ Reactive Forms avec validation
+- ✅ Pipes personnalisés (TruncatePipe)
+- ✅ Composition de composants (parent/child — min. 2 par page)
+- ✅ Data binding (property binding, event binding, two-way binding)
+- ✅ NgRx Store, Effects, Selectors, Actions
+- ✅ RxJS Observables
+
+## Architecture
+
+```
+src/app/
+├── core/                    # Services, modèles, guards, intercepteurs
+│   ├── guards/              # AuthGuard
+│   ├── interceptors/        # Error interceptor
+│   ├── models/              # User, Job, Favorite, Application
+│   └── services/            # Auth, Job, Favorites, Applications
+├── features/                # Modules fonctionnels (lazy loaded)
+│   ├── auth/                # Login, Register, Profile
+│   ├── jobs/                # Recherche d'emplois
+│   ├── favorites/           # Gestion des favoris
+│   └── applications/        # Suivi des candidatures
+├── shared/                  # Composants partagés
+│   └── pipes/               # TruncatePipe
+└── store/                   # NgRx state management
+    └── favorites/           # Actions, Reducer, Effects, Selectors
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Installation & Lancement
 
-## Code scaffolding
+### Prérequis
+- Node.js 18+
+- npm
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Installation
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Démarrage
 
+1. **Lancer JSON Server** (terminal 1) :
 ```bash
-ng generate --help
+npm run server
 ```
+Le serveur JSON démarre sur `http://localhost:3000`
 
-## Building
-
-To build the project run:
-
+2. **Lancer Angular** (terminal 2) :
 ```bash
-ng build
+npm start
 ```
+L'application est accessible sur `http://localhost:4200`
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## API utilisée
 
-## Running unit tests
+**Arbeitnow API** — API publique gratuite sans authentification requise
+- Base URL : `https://www.arbeitnow.com/api/job-board-api`
+- Couverture : Europe + Remote
+- Documentation : https://www.arbeitnow.com/blog/job-board-api
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Données persistées
 
-```bash
-ng test
-```
+| Stockage | Données |
+|---|---|
+| localStorage | Profil utilisateur (authentification) |
+| JSON Server (db.json) | Utilisateurs, Favoris, Candidatures |
 
-## Running end-to-end tests
+## Choix techniques justifiés
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **localStorage** plutôt que sessionStorage : permet une session persistante même après fermeture du navigateur, meilleure UX pour les utilisateurs
+- **NgRx pour les favoris** : gestion d'état centralisée avec Redux DevTools pour le debugging
+- **Arbeitnow API** : pas d'authentification requise, idéale pour le développement rapide
+- **Standalone components** : approche moderne Angular, meilleur tree-shaking
+- **Lazy Loading** : chargement optimisé des modules à la demande

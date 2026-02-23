@@ -8,7 +8,34 @@
       "id": 1
     }
   ],
-  "applications": [],
+  "applications": [
+    {
+      "userId": 1,
+      "offerId": "senior-backend-entwicklerin-php-laravel-fur-populare-social-intranet-plattform-nurnberg-remote-nuremberg-68724",
+      "apiSource": "arbeitnow",
+      "title": "Senior Backend Entwickler:in PHP & Laravel - für populäre Social Intranet Plattform (Nürnberg & remote) *",
+      "company": "Ilias Vassiliou  & Team  headhunter.digital im Auftrag",
+      "location": "Nuremberg",
+      "url": "https://www.arbeitnow.com/jobs/companies/ilias-vassiliou-team-headhunterdigital-im-auftrag/senior-backend-entwicklerin-php-laravel-fur-populare-social-intranet-plattform-nurnberg-remote-nuremberg-68724",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-23T14:25:30.607Z",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "offerId": "customer-success-engineer-it-business-analyst-hurth-133088",
+      "apiSource": "arbeitnow",
+      "title": "Customer Success Engineer / IT Business Analyst (m/w/d)",
+      "company": "HR-Autopilot GmbH",
+      "location": "Hürth",
+      "url": "https://www.arbeitnow.com/jobs/companies/hr-autopilot-gmbh/customer-success-engineer-it-business-analyst-hurth-133088",
+      "status": "en_attente",
+      "notes": "",
+      "dateAdded": "2026-02-23T14:25:33.390Z",
+      "id": 3
+    }
+  ],
   "favorites": [
     {
       "userId": 1,
