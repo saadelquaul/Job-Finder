@@ -1,0 +1,57 @@
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition">
+  <div class="flex flex-col sm:flex-row justify-between gap-4">
+    <div class="flex-1">
+      <h3 class="text-lg font-semibold text-gray-800 mb-1">{{ job.title }}</h3>
+      <p class="text-blue-600 font-medium text-sm mb-1">{{ job.company_name }}</p>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-3">
+        <span class="flex items-center gap-1">📍 {{ job.location }}</span>
+        <span class="flex items-center gap-1">📅 {{ job.created_at | date:'dd/MM/yyyy' }}</span>
+        @if (job.remote) {
+          <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-medium">Remote</span>
+        }
+      </div>
+      <p class="text-gray-600 text-sm leading-relaxed">{{ job.description | truncate:200 }}</p>
+
+      @if (job.tags && job.tags.length > 0) {
+        <div class="flex flex-wrap gap-1.5 mt-3">
+          @for (tag of job.tags.slice(0, 5); track tag) {
+            <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs">{{ tag }}</span>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="flex sm:flex-col gap-2 shrink-0">
+      <a [href]="job.url" target="_blank" rel="noopener"
+        class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition text-center whitespace-nowrap">
+        Voir l'offre
+      </a>
+
+      @if (authService.isAuthenticated) {
+        @if (isFavorite$ | async) {
+          <button disabled
+            class="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-lg text-sm font-medium cursor-default whitespace-nowrap">
+            ⭐ Favori
+          </button>
+        } @else {
+          <button (click)="toggleFavorite()"
+            class="border border-yellow-400 text-yellow-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-yellow-50 transition cursor-pointer whitespace-nowrap">
+            ☆ Ajouter aux favoris
+          </button>
+        }
+
+        @if (applicationAdded) {
+          <button disabled
+            class="bg-green-100 text-green-700 px-4 py-2 rounded-lg text-sm font-medium cursor-default whitespace-nowrap">
+            ✓ Suivi ajouté
+          </button>
+        } @else {
+          <button (click)="trackApplication()"
+            class="border border-green-400 text-green-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-50 transition cursor-pointer whitespace-nowrap">
+            📋 Suivre
+          </button>
+        }
+      }
+    </div>
+  </div>
+</div>

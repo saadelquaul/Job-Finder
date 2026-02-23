@@ -1,0 +1,33 @@
+<div>
+  <p class="text-gray-600 mb-4 text-sm">{{ jobs.length }} offre(s) trouvée(s) — Page {{ currentPage }}</p>
+
+  <div class="space-x-1">
+    @for (job of paginatedJobs; track job.slug) {
+      <app-job-card [job]="job" />
+    }
+  </div>
+
+  <!-- Pagination -->
+  @if (totalPages > 1) {
+    <div class="flex justify-center items-center gap-2 mt-8">
+      <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1"
+        class="px-4 py-2 rounded-lg border border-gray-300 text-sm hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer">
+        ← Précédent
+      </button>
+
+      @for (page of pages; track page) {
+        <button (click)="goToPage(page)"
+          [class]="page === currentPage
+            ? 'px-4 py-2 rounded-lg bg-blue-600 text-white text-sm cursor-pointer'
+            : 'px-4 py-2 rounded-lg border border-gray-300 text-sm hover:bg-gray-100 transition cursor-pointer'">
+          {{ page }}
+        </button>
+      }
+
+      <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages"
+        class="px-4 py-2 rounded-lg border border-gray-300 text-sm hover:bg-gray-100 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer">
+        Suivant →
+      </button>
+    </div>
+  }
+</div>
