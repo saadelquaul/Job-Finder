@@ -1,0 +1,30 @@
+<div class="min-h-[calc(100vh-10rem)] bg-gray-50 py-8 px-4">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-800 mb-2">Mes Candidatures</h1>
+    <p class="text-gray-500 mb-8">Suivez l'état de vos candidatures</p>
+
+    @if (loading()) {
+      <div class="flex justify-center py-12">
+        <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
+      </div>
+    }
+
+    @if (!loading() && applications().length === 0) {
+      <div class="text-center py-16 text-gray-500">
+        <p class="text-lg">Aucune candidature suivie</p>
+        <p class="text-sm mt-2">Recherchez des offres et commencez à suivre vos candidatures</p>
+      </div>
+    }
+
+    @if (!loading() && applications().length > 0) {
+      <div class="space-x-2">
+        @for (app of applications(); track app.id) {
+          <app-application-card
+            [application]="app"
+            (update)="onUpdate($event)"
+            (remove)="onRemove($event)" />
+        }
+      </div>
+    }
+  </div>
+</div>
