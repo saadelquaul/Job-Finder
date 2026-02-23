@@ -1,0 +1,27 @@
+<div class="min-h-[calc(100vh-10rem)] bg-gray-50 py-8 px-4">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-800 mb-2">Mes Favoris</h1>
+    <p class="text-gray-500 mb-8">Retrouvez toutes vos offres sauvegardées</p>
+
+    @if (loading$ | async) {
+      <div class="flex justify-center py-12">
+        <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
+      </div>
+    }
+
+    @if (favorites$ | async; as favorites) {
+      @if (favorites.length === 0) {
+        <div class="text-center py-16 text-gray-500">
+          <p class="text-lg">Vous n'avez pas encore de favoris</p>
+          <p class="text-sm mt-2">Recherchez des offres et ajoutez-les en favoris</p>
+        </div>
+      } @else {
+        <div class="space-x-4">
+          @for (fav of favorites; track fav.id) {
+            <app-favorite-card [favorite]="fav" (remove)="onRemove($event)" />
+          }
+        </div>
+      }
+    }
+  </div>
+</div>
