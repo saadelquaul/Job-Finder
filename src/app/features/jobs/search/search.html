@@ -1,0 +1,45 @@
+<div class="min-h-[calc(100vh-10rem)] bg-gray-50">
+  <!-- Hero section -->
+  <div class="bg-blue-600 text-white py-12 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl font-bold mb-3">Trouvez votre emploi idéal</h1>
+      <p class="text-blue-100 text-lg mb-8">Recherchez parmi des milliers d'offres d'emploi internationales</p>
+      <app-search-bar (search)="onSearch($event)" />
+    </div>
+  </div>
+
+  <!-- Results section -->
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    @if (loading()) {
+      <div class="flex justify-center items-center py-20">
+        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <span class="ml-3 text-gray-600">Recherche en cours...</span>
+      </div>
+    }
+
+    @if (errorMessage()) {
+      <div class="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-lg text-center">
+        {{ errorMessage(  ) }}
+      </div>
+    }
+
+    @if (!loading() && searched() && jobs().length === 0 && !errorMessage()) {
+      <div class="text-center py-20 text-gray-500">
+        <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <p class="text-lg">Aucune offre trouvée pour votre recherche</p>
+        <p class="text-sm mt-2">Essayez d'autres mots-clés ou élargissez votre recherche</p>
+      </div>
+    }
+
+    @if (!loading() && jobs().length > 0) {
+      <app-job-list
+        [jobs]="jobs()"
+        [currentPage]="currentPage"
+        [totalPages]="totalPages()"
+        (pageChange)="onPageChange($event)"
+       />
+    }
+  </div>
+</div>
