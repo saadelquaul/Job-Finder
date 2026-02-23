@@ -1,4 +1,4 @@
-export interface JobOffer {
+export interface JobOfferModel {
 slug: string;
 company_name: string;
 title: string;

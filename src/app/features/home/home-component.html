@@ -1,0 +1,25 @@
+<div class="home-container">
+  <h1>JobFinder</h1>
+
+  <app-search-bar (search)="onSearch($event)"></app-search-bar>
+
+  <div class="results">
+    <h2>Results: {{ jobService.totalResultCount() }}</h2>
+
+    <app-job-list [jobs]="jobService.paginatedJobs()"></app-job-list>
+
+    @if (jobService.totalResultCount() > 10) {
+      <div class="pagination">
+        <button
+          [disabled]="jobService.currentPage() === 1"
+          (click)="prevPage()">Back</button>
+
+        <span>Page {{ jobService.currentPage() }}</span>
+
+        <button
+          [disabled]="jobService.currentPage() === jobService.totalPages()"
+          (click)="nextPage()">Next</button>
+      </div>
+    }
+  </div>
+</div>

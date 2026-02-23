@@ -1,0 +1,38 @@
+.home-container { max-width: 1000px; margin: 50px auto; padding: 20px; }
+h1 { text-align: center; color: #333; }
+
+.job-list { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+
+.job-card {
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.job-info h3 { margin: 0 0 5px 0; font-size: 1.2rem; color: #007bff; }
+.job-info span { display: block; color: #666; font-size: 0.9rem; }
+.date { color: #999; font-size: 0.8rem; margin-top: 5px; display: block;}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+button:disabled { background: #ccc; cursor: not-allowed; }
+.spinner { text-align: center; font-size: 1.5rem; margin: 20px; }
