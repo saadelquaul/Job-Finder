@@ -1,14 +1,14 @@
 import { Injectable, signal, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable, tap, map, BehaviorSubject} from 'rxjs';
-import {User} from '../models/user';
+import {User} from '../models/user.model';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly API_URL = '/api/users';
+  private readonly API_URL = 'http://localhost:3000/users';
   private currentUserSubject = new BehaviorSubject<User | null>(this.getStoredUser());
   currentUser$ = this.currentUserSubject.asObservable();
 

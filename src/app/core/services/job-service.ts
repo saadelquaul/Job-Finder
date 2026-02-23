@@ -1,8 +1,8 @@
-import {computed, inject, Injectable, signal} from '@angular/core';
+import { inject, Injectable, signal} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {map, Observable} from 'rxjs';
 import {JobApiResponse} from '../models/job-api-response';
-import {JobOfferModel} from '../models/job-offer-model';
+import {Job} from '../models/job.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class JobService {
   private API_URL = 'https://www.arbeitnow.com/api/job-board-api';
 
   searchJobs(keyword: string, location: string, page: number = 1): Observable<{
-    jobs: JobOfferModel[];
+    jobs: Job[];
     totalPages: number;
     currentPage: number;
     total: number;
