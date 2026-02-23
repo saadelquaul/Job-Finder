@@ -1,7 +1,7 @@
-import {JobOfferModel} from './job-offer-model';
+import {Job} from './job.model';
 
 export interface JobApiResponse {
-  data: JobOfferModel[];
+  data: Job[];
   links: {
     first: string | null;
     last: string | null;
