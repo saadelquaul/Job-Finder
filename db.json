@@ -1,16 +1,22 @@
 {
   "users": [
     {
-      "nom": "sadad",
-      "prenom": "adad",
-      "email": "saadel@gmail.co",
-      "password": "123456789",
+      "nom": "saaaa",
+      "prenom": "as",
+      "email": "saadel@gmail",
       "id": 1
+    },
+    {
+      "nom": "test",
+      "prenom": "test",
+      "email": "test@gg.co",
+      "password": "123456",
+      "id": 2
     }
   ],
   "applications": [
     {
-      "userId": 1,
+      "userId": 2,
       "offerId": "senior-backend-entwicklerin-php-laravel-fur-populare-social-intranet-plattform-nurnberg-remote-nuremberg-68724",
       "apiSource": "arbeitnow",
       "title": "Senior Backend Entwickler:in PHP & Laravel - für populäre Social Intranet Plattform (Nürnberg & remote) *",
@@ -19,49 +25,11 @@
       "url": "https://www.arbeitnow.com/jobs/companies/ilias-vassiliou-team-headhunterdigital-im-auftrag/senior-backend-entwicklerin-php-laravel-fur-populare-social-intranet-plattform-nurnberg-remote-nuremberg-68724",
       "status": "en_attente",
       "notes": "",
-      "dateAdded": "2026-02-23T14:25:30.607Z",
+      "dateAdded": "2026-02-24T12:21:47.552Z",
       "id": 1
-    },
-    {
-      "userId": 1,
-      "offerId": "customer-success-engineer-it-business-analyst-hurth-133088",
-      "apiSource": "arbeitnow",
-      "title": "Customer Success Engineer / IT Business Analyst (m/w/d)",
-      "company": "HR-Autopilot GmbH",
-      "location": "Hürth",
-      "url": "https://www.arbeitnow.com/jobs/companies/hr-autopilot-gmbh/customer-success-engineer-it-business-analyst-hurth-133088",
-      "status": "en_attente",
-      "notes": "",
-      "dateAdded": "2026-02-23T14:25:33.390Z",
-      "id": 3
     }
   ],
-  "favorites": [
-    {
-      "userId": 1,
-      "offerId": "senior-backend-entwicklerin-php-laravel-fur-populare-social-intranet-plattform-nurnberg-remote-nuremberg-68724",
-      "title": "Senior Backend Entwickler:in PHP & Laravel - für populäre Social Intranet Plattform (Nürnberg & remote) *",
-      "company": "Ilias Vassiliou  & Team  headhunter.digital im Auftrag",
-      "location": "Nuremberg",
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "offerId": "customer-success-engineer-it-business-analyst-hurth-133088",
-      "title": "Customer Success Engineer / IT Business Analyst (m/w/d)",
-      "company": "HR-Autopilot GmbH",
-      "location": "Hürth",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "offerId": "artist-manager-influencer-manager-berlin-32179",
-      "title": "Artist Manager / Influencer Manager (m/w/d) BERLIN",
-      "company": "Lionflence",
-      "location": "Berlin",
-      "id": 3
-    }
-  ],
+  "favorites": [],
   "posts": [
     {
       "id": 1,
